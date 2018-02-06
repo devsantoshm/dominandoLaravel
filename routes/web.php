@@ -11,15 +11,9 @@
 |
 */
 
-Route::get('/', ['as' => 'home', function () {
-    return view('home');
-}]);
+Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 //Darle nombre a la ruta para evitar cambiar en todas las páginas
-Route::get('contactanos', ['as' => 'contactos', function () {
-    return view('contactos');
-}]);
+Route::get('contactanos', ['as' => 'contactos', 'uses' => 'PagesController@contact']);
 //Agregamos un ? para que el parametro nombre no sea obligatorio definirlo por la url
 //Agregamos where para validar el nombre, para que sea solamente letras y no numeros
-Route::get('saludos/{nombre?}', ['as' => 'saludos', function ($nombre = "Invitado") {
-    return view('saludo', compact('nombre'));
-}])->where('nombre', "[A-Za-z]+");
+Route::get('saludos/{nombre?}', ['as' => 'saludos', 'uses' => 'PagesController@saludo'])->where('nombre', "[A-Za-z]+");
