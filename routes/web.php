@@ -16,7 +16,7 @@ Route::get('/', ['as' => 'home', function () {
 }]);
 //Darle nombre a la ruta para evitar cambiar en todas las páginas
 Route::get('contactanos', ['as' => 'contactos', function () {
-    return "Hola desde contactanos";
+    return view('contactos');
 }]);
 //Agregamos un ? para que el parametro nombre no sea obligatorio definirlo por la url
 //Agregamos where para validar el nombre, para que sea solamente letras y no numeros
