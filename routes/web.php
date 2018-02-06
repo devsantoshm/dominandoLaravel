@@ -14,6 +14,7 @@
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 //Darle nombre a la ruta para evitar cambiar en todas las páginas
 Route::get('contactanos', ['as' => 'contactos', 'uses' => 'PagesController@contact']);
+Route::post('contacto', 'PagesController@mensajes');
 //Agregamos un ? para que el parametro nombre no sea obligatorio definirlo por la url
 //Agregamos where para validar el nombre, para que sea solamente letras y no numeros
 Route::get('saludos/{nombre?}', ['as' => 'saludos', 'uses' => 'PagesController@saludo'])->where('nombre', "[A-Za-z]+");

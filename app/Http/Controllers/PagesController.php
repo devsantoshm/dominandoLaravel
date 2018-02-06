@@ -16,6 +16,15 @@ class PagesController extends Controller
     	return view('contactos');
     }
 
+    public function mensajes(Request $request)
+    {
+    	if ($request->has('nombre')) {
+    		return "Si tiene nombre. Es " . $request->input('nombre');
+    	}
+
+    	return 'No tiene nombre';
+    }
+
     public function saludo($nombre = "Invitado")
     {
     	return view('saludo', compact('nombre'));

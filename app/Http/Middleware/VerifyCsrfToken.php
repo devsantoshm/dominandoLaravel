@@ -12,6 +12,6 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        //
+        'contacto'//no queeremos que la ruta sea verificada con ataque csrf
     ];
 }

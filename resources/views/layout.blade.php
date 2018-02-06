@@ -3,14 +3,25 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<style>
+		.active{
+			text-decoration: none;
+			color: green;
+		}
+	</style>
 	<title>Home</title>
 </head>
 <body>
 	<header>
+		<?php
+			function activeMenu($url){
+				return request()->is($url) ? 'active' : '';
+			}
+		?>
 		<nav>
-			<a href="<?php echo route('home'); ?>">Inicio</a>
-			<a href="<?php echo route('saludos', 'Jorge'); ?>">Saludo</a>
-			<a href="<?php echo route('contactos'); ?>">Contacto</a>
+			<a class="{{ activeMenu('/') }}" href="{{ route('home') }}">Inicio</a>
+			<a class="{{ activeMenu('saludos/*') }}" href="{{ route('saludos', 'Jorge') }}">Saludo</a>
+			<a class="{{ activeMenu('contactanos') }}" href="{{ route('contactos') }}">Contacto</a>
 		</nav>
 	</header>
 	@yield('contenido')
