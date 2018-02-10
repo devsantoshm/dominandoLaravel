@@ -18,11 +18,13 @@ class PagesController extends Controller
 
     public function mensajes(Request $request)
     {
-    	if ($request->has('nombre')) {
-    		return "Si tiene nombre. Es " . $request->input('nombre');
-    	}
+    	$this->validate($request, [
+            'nombre' => 'required',
+            'email' => 'required|email',
+            'mensaje' => 'required|min:5'
+        ]);
 
-    	return 'No tiene nombre';
+        return $request->all();
     }
 
     public function saludo($nombre = "Invitado")
