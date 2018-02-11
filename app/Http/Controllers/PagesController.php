@@ -19,7 +19,10 @@ class PagesController extends Controller
 
     public function mensajes(CreateMessageRequest $request)
     {
-        return $request->all();
+        $data = $request->all(); //devuelve un array
+        /*return redirect()->route('contactos')
+                        ->with('info', 'Tu mensaje se envio correctamente');*/
+        return back()->with('info', 'Tu mensaje se envio correctamente');
     }
 
     public function saludo($nombre = "Invitado")
