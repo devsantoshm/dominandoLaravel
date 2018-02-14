@@ -9,7 +9,7 @@ class PagesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('example', ['only' => ['home']]);
+        //$this->middleware('example', ['only' => ['home']]);
     }
     
     public function home()
