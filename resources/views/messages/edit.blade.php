@@ -4,7 +4,7 @@
 	@if (session()->has('info'))
 		<h3>{{ session('info') }}</h3>
 	@else
-		<form method="post" action="{{ route('messages.update', $message->id) }}">
+		<form method="post" action="{{ route('mensajes.update', $message->id) }}">
 			{!! method_field('PUT') !!}
 			{!! csrf_field() !!}
 			<p><label for="nombre">
