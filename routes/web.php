@@ -11,6 +11,16 @@
 |
 */
 
+/*Route::get('test', function(){
+	$user = new App\User;
+	$user->name = 'santos';
+	$user->email = 'san@g.com';
+	$user->password = bcrypt('123');
+	$user->save();
+
+	return $user;
+});*/
+
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 //Darle nombre a la ruta para evitar cambiar en todas las páginas
 //Agregamos un ? para que el parametro nombre no sea obligatorio definirlo por la url

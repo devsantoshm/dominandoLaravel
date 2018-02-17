@@ -27,7 +27,22 @@
 			<a class="{{ activeMenu('/') }}" href="{{ route('home') }}">Inicio</a>
 			<a class="{{ activeMenu('saludos/*') }}" href="{{ route('saludos', 'Jorge') }}">Saludo</a>
 			<a class="{{ activeMenu('mensajes/create') }}" href="{{ route('mensajes.create') }}">Contacto</a>
-			<a class="{{ activeMenu('mensajes') }}" href="{{ route('mensajes.index') }}">Mensajes</a>
+			
+			@if (auth()->check())
+				<a class="{{ activeMenu('mensajes') }}" href="{{ route('mensajes.index') }}">Mensajes</a>
+				<a href="{{ route('logout') }}"
+	                		onclick="event.preventDefault();
+	                        document.getElementById('logout-form').submit();">
+	                Cerrar sesión de {{ auth()->user()->name }}
+	            </a>
+
+	            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+	                {{ csrf_field() }}
+	            </form>
+			@endif
+			@if (auth()->guest())
+				<a class="{{ activeMenu('login') }}" href="login">Login</a>	
+			@endif
 		</nav>
 	</header>
 	@yield('contenido')
