@@ -3,17 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<style>
-		.active{
-			text-decoration: none;
-			color: green;
-		}
-
-		.error{
-			color: red;
-			font-size: 12px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
 	<title>Home</title>
 </head>
 <body>
